@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Axentra | Contact{% endblock %}
+{% block content %}
+<section class="section pad-top">
+  <div class="container">
+    <div class="section-head center">
+      <h1>Get In <span>Touch</span></h1>
+      <p class="lead">
+        Ready to transform your career? Let's discuss how our services can help you achieve your goals.
+      </p>
+    </div>
+    <div class="two-pane">
+      <form id="contact-form" class="glass form">
+        {% csrf_token %}
+        <div class="two-col">
+          <input name="full_name" placeholder="Full Name" minlength="2" maxlength="150" required />
+          <input name="email" type="email" placeholder="Email Address" maxlength="254" required />
+        </div>
+        <div class="two-col">
+          <input
+            name="phone"
+            type="tel"
+            inputmode="numeric"
+            placeholder="Phone Number"
+            maxlength="10"
+            pattern="^\d{10}$"
+            title="Phone number must be exactly 10 digits"
+          />
+          <select name="service_interest">
+            <option value="">Select a service</option>
+            {% for service in services %}
+            <option value="{{ service.title }}">{{ service.title }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <textarea name="message" rows="6" placeholder="Tell us about your goals..." minlength="20" maxlength="2000" required></textarea>
+        <button class="btn btn-primary" type="submit">Send Message</button>
+        <p id="contact-status"></p>
+      </form>
+      <div class="stack">
+        <div class="card glass">
+          <strong>Email</strong>
+          <p class="muted">
+            <a href="mailto:info@axentra.com">info@axentra.com</a>
+          </p>
+        </div>
+        <div class="card glass">
+          <strong>Phone</strong>
+          <p class="muted">
+            <a href="https://wa.me/919773012049" target="_blank" rel="noopener noreferrer">+91 9773012049</a>
+          </p>
+        </div>
+        <div class="card glass"><strong>Business Hours</strong><p class="muted">Mon - Fri: 9:00 AM - 5:00 PM EST</p></div>
+        <div class="card glass"><strong>Location</strong><p class="muted">Austin, TX 78731, United States</p></div>
+        <div class="card glass"><strong>Indian Location</strong><p class="muted">Ahmedabad, Gujarat, India</p></div>
+      </div>
+    </div>
+    <div class="card glass center cta">
+      <h2>Visit Our <span>Office</span></h2>
+      <p class="lead">Located in Sheridan, Wyoming, available for in-person consultations.</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

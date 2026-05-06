@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Axentra | Services{% endblock %}
+{% block content %}
+<section class="section pad-top">
+  <div class="container">
+    <div class="section-head center">
+      <h1>Our <span>Services</span></h1>
+      <p>
+        Comprehensive career services designed to support you at every stage of your
+        professional journey.
+      </p>
+    </div>
+    <div class="grid grid-3">
+      {% for service in services %}
+      <article class="card glass">
+        <h3>{{ service.title }}</h3>
+        <p class="muted">{{ service.desc }}</p>
+        <p><strong>Key Features</strong></p>
+        <ul class="feature-list">
+          {% for feature in service.features %}
+          <li>{{ feature }}</li>
+          {% endfor %}
+        </ul>
+        <a class="btn btn-outline" href="/contact/">Learn More</a>
+      </article>
+      {% endfor %}
+    </div>
+    <div class="card glass center cta">
+      <h2>Ready to <span>Get Started?</span></h2>
+      <p class="lead">Let's discuss how our services can help you achieve your career goals.</p>
+      <a class="btn btn-primary" href="/#contact">Book a Session</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

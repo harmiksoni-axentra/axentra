@@ -1,0 +1,201 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Axentra | Home{% endblock %}
+{% block content %}
+<section id="home" class="hero">
+  <img class="hero-bg-image" src="{% static 'images/hero-bg.svg' %}" alt="" />
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <p class="tag glass-pill">IT & Non-IT Staffing & Consulting Solutions</p>
+    <h1>Your trusted partner for <span>IT & Non-IT</span> staffing solutions</h1>
+    <p class="lead">
+      Axentra connects top talent with leading organizations across technology, healthcare,
+      finance, engineering, and more.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="/contact/">Book a Consultation</a>
+      <a class="btn btn-outline" href="/services/">Our Services</a>
+    </div>
+    <div class="stats-grid">
+      {% for stat in home_stats %}
+      <div class="card glass center">
+        <div class="stat-num">{{ stat.num }}</div>
+        <div class="muted">{{ stat.label }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <div class="container">
+    <div class="section-head center">
+      <p class="tag">About Us</p>
+      <h2>Who is <span>Axentra</span>?</h2>
+      <p class="lead">
+        We are a US-based staffing and consulting firm connecting top IT and non-IT talent
+        with leading organizations to drive growth and success.
+      </p>
+    </div>
+    <div class="grid grid-3">
+      {% for item in about_items %}
+      <article class="card glass">
+        <h3>{{ item.title }}</h3>
+        <p class="muted">{{ item.desc }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="services" class="section section-gradient">
+  <div class="container">
+    <div class="section-head center">
+      <p class="tag">Our Services</p>
+      <h2>Unleashing Innovation, <span>Powering Progress</span></h2>
+    </div>
+    <div class="grid grid-4">
+      {% for service in home_services %}
+      <article class="card glass">
+        <h3>{{ service.title }}</h3>
+        <p class="muted">{{ service.desc }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="ai-tools" class="section">
+  <div class="container">
+    <div class="two-pane">
+      <div>
+        <p class="tag">IT & Non-IT Talent</p>
+        <h2>Roles we <span>specialize in</span></h2>
+        <p class="lead">
+          We train, mentor, and place top-tier talent across IT and non-IT roles in the
+          most in-demand industries.
+        </p>
+        <a class="btn btn-primary" href="/contact/">Schedule Meeting</a>
+      </div>
+      <div>
+        <h4>IT Roles</h4>
+        <div class="chips">
+          {% for role in it_roles %}
+          <span>{{ role }}</span>
+          {% endfor %}
+        </div>
+        <h4>Non-IT Roles</h4>
+        <div class="chips">
+          {% for role in non_it_roles %}
+          <span>{{ role }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="logo-strip">
+      <p class="center muted">Where our talent is employed</p>
+      <div class="marquee-wrap">
+        <div class="marquee-track">
+          {% for logo in client_logos %}
+          <div class="company-logo-chip">
+            <img
+              src="https://www.google.com/s2/favicons?domain={{ logo.domain }}&sz=128"
+              alt="{{ logo.name }} logo"
+              loading="lazy"
+              width="36"
+              height="36"
+              onerror="if(!this.dataset.fallback){this.dataset.fallback='1';this.src='https://icons.duckduckgo.com/ip3/{{ logo.domain }}.ico';}else{this.parentElement.style.display='none';}"
+            />
+          </div>
+          {% endfor %}
+          {% for logo in client_logos %}
+          <div class="company-logo-chip">
+            <img
+              src="https://www.google.com/s2/favicons?domain={{ logo.domain }}&sz=128"
+              alt="{{ logo.name }} logo"
+              loading="lazy"
+              width="36"
+              height="36"
+              onerror="if(!this.dataset.fallback){this.dataset.fallback='1';this.src='https://icons.duckduckgo.com/ip3/{{ logo.domain }}.ico';}else{this.parentElement.style.display='none';}"
+            />
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-gradient">
+  <div class="container">
+    <div class="section-head center">
+      <p class="tag">Testimonials</p>
+      <h2>Success Stories from <span>Our Clients</span></h2>
+    </div>
+    <div class="grid grid-3">
+      {% for t in testimonials %}
+      <article class="card glass">
+        <p class="muted">{{ t.message }}</p>
+        <div class="person">
+          <div class="avatar">{{ t.name|slice:":1" }}</div>
+          <div>
+            <strong>{{ t.name }}</strong>
+            <p class="muted">{{ t.designation }} at {{ t.company_name }}</p>
+          </div>
+        </div>
+      </article>
+      {% empty %}
+      <article class="card glass">
+        <p class="muted">No testimonials are published yet.</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="card glass cta center">
+      <h2>You could be the next to get your <span>dream project</span></h2>
+      <p class="lead">Let's discuss how Axentra can help you with the right talent or role.</p>
+      <a class="btn btn-primary" href="/contact/">Schedule a Meeting</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="container">
+    <div class="section-head center">
+      <p class="tag">Contact</p>
+      <h2>Get in <span>Touch</span></h2>
+    </div>
+    <div class="two-pane">
+      <div class="stack">
+        <div class="card glass"><strong>Visit Us</strong><p class="muted">Austin, TX 78731, United States</p></div>
+        <div class="card glass"><strong>Indian Location</strong><p class="muted">Ahmedabad, Gujarat, India</p></div>
+        <div class="card glass"><strong>Email Us</strong><p class="muted">info@axentra.com</p></div>
+        <div class="card glass"><strong>Call Us</strong><p class="muted">+91 9773012049</p></div>
+      </div>
+      <form id="contact-form-home" class="card glass form">
+        {% csrf_token %}
+        <div class="two-col">
+          <input name="full_name" placeholder="Your Name" minlength="2" maxlength="150" required />
+          <input name="email" type="email" placeholder="Your Email" maxlength="254" required />
+        </div>
+        <input
+          name="phone"
+          type="tel"
+          inputmode="numeric"
+          placeholder="Phone Number"
+          maxlength="10"
+          pattern="^\d{10}$"
+          title="Phone number must be exactly 10 digits"
+        />
+        <textarea name="message" rows="5" placeholder="Your Message" minlength="20" maxlength="2000" required></textarea>
+        <button class="btn btn-primary" type="submit">Send Message</button>
+        <p id="contact-status-home"></p>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,17 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Axentra logo">
+  <defs>
+    <linearGradient id="axentraBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" />
+      <stop offset="100%" stop-color="#2563EB" />
+    </linearGradient>
+    <linearGradient id="axentraCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22D3EE" />
+      <stop offset="100%" stop-color="#14B8A6" />
+    </linearGradient>
+  </defs>
+
+  <ellipse cx="128" cy="128" rx="102" ry="52" fill="none" stroke="url(#axentraBlue)" stroke-width="10" transform="rotate(-32 128 128)" />
+  <ellipse cx="128" cy="128" rx="102" ry="52" fill="none" stroke="url(#axentraCyan)" stroke-width="10" transform="rotate(32 128 128)" />
+
+  <path d="M92 170 L128 86 L164 170" fill="none" stroke="url(#axentraCyan)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
