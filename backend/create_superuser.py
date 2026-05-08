@@ -3,7 +3,7 @@
 import os
 import django
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "acentra.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "axentra_backend.settings")
 # 👆 replace "acentra.settings" with your actual project settings path if different
 
 django.setup()
