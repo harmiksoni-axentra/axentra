@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 25% 10%;
+    --foreground: 0 0% 95%;
+
+    --card: 230 20% 14%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 230 20% 14%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 195 100% 50%;
+    --secondary-foreground: 230 25% 10%;
+
+    --muted: 230 15% 20%;
+    --muted-foreground: 230 10% 60%;
+
+    --accent: 330 80% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 230 15% 22%;
+    --input: 230 15% 22%;
+    --ring: 262 83% 58%;
+
+    --radius: 0.75rem;
+
+    --glow-primary: 262 83% 58%;
+    --glow-secondary: 195 100% 50%;
+    --glow-accent: 330 80% 60%;
+
+    --sidebar-background: 230 25% 8%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 230 15% 20%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 230 15% 22%;
+    --sidebar-ring: 262 83% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+  .glass-strong {
+    @apply bg-white/10 backdrop-blur-2xl border border-white/15;
+  }
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  }
+  .gradient-primary {
+    @apply bg-gradient-to-r from-primary to-secondary;
+  }
+  .glow-sm {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+  .glow-md {
+    box-shadow: 0 0 40px hsl(var(--primary) / 0.4), 0 0 80px hsl(var(--secondary) / 0.2);
+  }
+}
