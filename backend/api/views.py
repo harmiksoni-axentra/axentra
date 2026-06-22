@@ -53,10 +53,15 @@ class ContactSubmissionCreateApi(generics.CreateAPIView):
             f"Message:\n{submission.message}\n"
         )
 
-        send_mail(
-            subject=subject,
-            message=body,
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            recipient_list=[recipient],
-            fail_silently=True,
-        )
+        try:
+            send_mail(
+                subject=subject,
+                message=body,
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[recipient],
+                fail_silently=False,
+            )
+        except Exception as e:
+            import traceback
+            traceback.print_exc()
+            raise
