@@ -67,6 +67,6 @@ class ContactSubmissionCreateApi(generics.CreateAPIView):
                 fail_silently=False,
             )
         except Exception as e:
-            import traceback
-            traceback.print_exc()
+            print("ERROR TYPE:", type(e).__name__)
+            print("ERROR:", str(e))
             raise
